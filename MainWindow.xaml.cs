@@ -24,6 +24,7 @@ namespace DroneCare
         //only allows numbers to be entered in specified text boxes
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
+            //uses regex to only allow numbers
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
@@ -31,21 +32,25 @@ namespace DroneCare
         //adds a new servce item to the appropriate queue
         private void AddNewItem(object sender, RoutedEventArgs e)
         {
+            //retrieves user input from text boxes  
             string clientName = TB_ClientName.Text;
             string droneModel = TB_DroneModel.Text;
             string serviceProblem = TB_ServiceProblem.Text;
             int serviceCost = int.Parse(TB_ServiceCost.Text);
             int serviceTag = int.Parse(UD_ServiceTag.Text);
 
+            //creates new drone object
             Drone newDrone = new Drone(clientName, droneModel, serviceProblem, serviceCost, serviceTag);
 
+            //adds new drone to the appropriate queue based on service type selected
             if (RBT_Regular.IsChecked == true)
             {
                 regularService.Enqueue(newDrone);
             }
             else if (RBT_Express.IsChecked == true)
             {
-                newDrone.serviceCost *= 1.15; //adds 15% to cost for express service
+                //adds 15% to cost for express service
+                newDrone.serviceCost *= 1.15;
                 expressService.Enqueue(newDrone);
             }
         }

@@ -23,6 +23,7 @@ namespace DroneCare.Objects
             set
             {
                 if (value != null)
+                    //converts client name to title case
                     _clientName = textInfo.ToTitleCase(value.ToLower());
                 else
                     _clientName = null;
@@ -34,6 +35,7 @@ namespace DroneCare.Objects
             set
             {
                 if (value != null)
+                    //converts service problem to title case
                     _serviceProblem = textInfo.ToTitleCase(value.ToLower());
                 else
                     _serviceProblem = null;
@@ -44,7 +46,7 @@ namespace DroneCare.Objects
         public int serviceTag       { get { return _serviceTag; } set { _serviceTag = value; } }
 
 
-        //drone constructor
+        // drone constuctor that initializes all attributes
         public Drone(string? clientName, string? droneModel, string? serviceProblem,  int serviceCost, int serviceTag)
         {
             this.clientName     = clientName;
