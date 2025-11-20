@@ -9,7 +9,7 @@ namespace DroneCare.Objects
         private string? _clientName { get; set; }
         private string? _droneModel { get; set; }
         private string? _serviceProblem { get; set; }
-        private int _serviceCost    { get; set; }
+        private double _serviceCost    { get; set; }
         private int _serviceTag     { get; set; }
 
 
@@ -40,7 +40,7 @@ namespace DroneCare.Objects
             }
         }
         public string? droneModel { get { return _droneModel; } set { _droneModel = value; } }
-        public int serviceCost      { get { return _serviceCost; } set { _serviceCost = value; } }
+        public double serviceCost      { get { return _serviceCost; } set { _serviceCost = value; } }
         public int serviceTag       { get { return _serviceTag; } set { _serviceTag = value; } }
 
 

@@ -39,8 +39,15 @@ namespace DroneCare
 
             Drone newDrone = new Drone(clientName, droneModel, serviceProblem, serviceCost, serviceTag);
 
-            if      (RBT_Regular.IsChecked == true) regularService.Enqueue(newDrone);
-            else if (RBT_Express.IsChecked == true) expressService.Enqueue(newDrone);
+            if (RBT_Regular.IsChecked == true)
+            {
+                regularService.Enqueue(newDrone);
+            }
+            else if (RBT_Express.IsChecked == true)
+            {
+                newDrone.serviceCost *= 1.15; //adds 15% to cost for express service
+                expressService.Enqueue(newDrone);
+            }
         }
     }
 }
