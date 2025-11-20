@@ -29,6 +29,18 @@ namespace DroneCare
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        //clears all text boxes and resets radio buttons for new entry
+        private void ClearFields(object sender, RoutedEventArgs e)
+        {
+
+            TB_ClientName.Clear();
+            TB_DroneModel.Clear();
+            TB_ServiceProblem.Clear();
+            TB_ServiceCost.Text = "0";
+            UD_ServiceTag.Text = "100";
+            RBT_Regular.IsChecked = true;
+        }
+
         //returns the value if the priority radio group
         private string GetServicePriority()
         {
