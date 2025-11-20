@@ -29,6 +29,15 @@ namespace DroneCare
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        //returns the value if the priority radio group
+        private string GetServicePriority()
+        {
+            if      (RBT_Regular.IsChecked == true) return "Regular";
+            else if (RBT_Express.IsChecked == true) return "Express";
+
+            else return "Unknown";
+        }
+
         //adds a new servce item to the appropriate queue
         private void AddNewItem(object sender, RoutedEventArgs e)
         {
@@ -43,15 +52,16 @@ namespace DroneCare
             Drone newDrone = new Drone(clientName, droneModel, serviceProblem, serviceCost, serviceTag);
 
             //adds new drone to the appropriate queue based on service type selected
-            if (RBT_Regular.IsChecked == true)
+            switch (GetServicePriority())
             {
-                regularService.Enqueue(newDrone);
-            }
-            else if (RBT_Express.IsChecked == true)
-            {
-                //adds 15% to cost for express service
-                newDrone.serviceCost *= 1.15;
-                expressService.Enqueue(newDrone);
+                case "Regular":
+                    regularService.Enqueue(newDrone);
+                    break;
+                case "Express":
+                    //adds 15% to cost for express service
+                    newDrone.serviceCost *= 1.15;
+                    expressService.Enqueue(newDrone);
+                    break;
             }
         }
     }
