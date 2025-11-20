@@ -1,8 +1,11 @@
 ﻿using DroneCare.Objects;
+using System.ComponentModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace DroneCare
 {
@@ -19,9 +22,6 @@ namespace DroneCare
         //runs main logic
         public MainWindow()
         {
-            //set list views & box data context
-            LVW_RegularQueue.ItemsSource = regularService;
-
             InitializeComponent();
         }
 
@@ -80,10 +80,23 @@ namespace DroneCare
                     break;
             }
 
+            //MOVE ME
+            DisplayExpressQueue();
             DisplayReqularQueue();
         }
 
         //display all the elements in the regularService queue
-        private void DisplayReqularQueue() => LVW_RegularQueue.Items.Refresh();
+        private void DisplayReqularQueue()
+        {
+            LVW_RegularQueue.Items.Clear();
+            regularService.ToList().ForEach(drone => LVW_RegularQueue.Items.Add(drone));
+        }
+
+        //display all the elements in the expressService queue
+        private void DisplayExpressQueue()
+        {
+            LVW_ExpressQueue.Items.Clear();
+            expressService.ToList().ForEach(drone => LVW_ExpressQueue.Items.Add(drone));
+        }
     }
 }

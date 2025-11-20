@@ -39,16 +39,16 @@
             </ListView.View>
         </ListView>
 
-        <Label x:Name="LB_ExpressQueue" Content="Regular Queue" HorizontalAlignment="Left" Margin="300,240,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LB_ExpressQueue" Content="Express Queue" HorizontalAlignment="Left" Margin="300,240,0,0" VerticalAlignment="Top"/>
         <Button x:Name="BT_ExpressQueue" Content="Remove From Queue" HorizontalAlignment="Left" Margin="600,240,0,0" VerticalAlignment="Top" MinWidth="150"/>
-        <ListView x:Name="LVW_ExpressQueue" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="300,270,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="450" Height="170">
+        <ListView x:Name="LVW_ExpressQueue" Margin="300,270,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="450" Height="170">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="90"/>
-                    <GridViewColumn Header="Model" Width="90"/>
-                    <GridViewColumn Header="Cost" Width="90"/>
-                    <GridViewColumn Header="Problem" Width="90"/>
-                    <GridViewColumn Header="Tag" Width="90"/>
+                    <GridViewColumn Header="Name" Width="90" DisplayMemberBinding="{Binding clientName}"/>
+                    <GridViewColumn Header="Model" Width="90" DisplayMemberBinding="{Binding droneModel}"/>
+                    <GridViewColumn Header="Cost" Width="90" DisplayMemberBinding="{Binding serviceCost}"/>
+                    <GridViewColumn Header="Problem" Width="90" DisplayMemberBinding="{Binding serviceProblem}"/>
+                    <GridViewColumn Header="Tag" Width="90" DisplayMemberBinding="{Binding serviceTag}"/>
                 </GridView>
             </ListView.View>
         </ListView>
