@@ -16,12 +16,12 @@
 
         <TextBox x:Name="TB_ClientName" HorizontalAlignment="Left" Margin="120,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TB_DroneModel" HorizontalAlignment="Left" Margin="120,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_ServiceCost" HorizontalAlignment="Left" Margin="120,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_ServiceCost" HorizontalAlignment="Left" Margin="120,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" Text="0"/>
         <TextBox x:Name="TB_ServiceProblem" HorizontalAlignment="Left" Margin="120,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="35.92" VerticalScrollBarVisibility="Auto"/>
-        <xctk:IntegerUpDown Name="upDown" HorizontalAlignment="Left" Margin="120,160,0,0" Width="120" Height="23" VerticalAlignment="Top" AllowTextInput="False" Increment="10" Minimum="100" Maximum="900" />
-        <RadioButton x:Name="RBT_Regular" Content="Regular" HorizontalAlignment="Left" Margin="24,194,0,0" VerticalAlignment="Top"/>
+        <xctk:IntegerUpDown Name="UD_ServiceTag" HorizontalAlignment="Left" Margin="120,160,0,0" Width="120" Height="23" VerticalAlignment="Top" AllowTextInput="False" Increment="10" Minimum="100" Maximum="900" Text="100" />
+        <RadioButton x:Name="RBT_Regular" Content="Regular" HorizontalAlignment="Left" Margin="24,194,0,0" VerticalAlignment="Top" IsChecked="True"/>
         <RadioButton x:Name="RBT_Express" Content="Express" HorizontalAlignment="Left" Margin="124,194,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BT_AddDrone" Content="Add Drone to Queue" HorizontalAlignment="Left" Margin="24,224,0,0" VerticalAlignment="Top" MinWidth="215"/>
+        <Button x:Name="BT_AddDrone" Content="Add Drone to Queue" HorizontalAlignment="Left" Margin="24,224,0,0" VerticalAlignment="Top" MinWidth="215" Click="AddNewItem"/>
 
         <TextBox x:Name="TB_ErrorMessage" Margin="0,0,0,20" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="960" Height="54" Foreground="Red" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Text="ERROR MESSAGE:"/>
 

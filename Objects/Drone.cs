@@ -5,6 +5,7 @@ namespace DroneCare.Objects
 {
     internal class Drone
     {
+        //private drone attributes
         private string? _clientName { get; set; }
         private string? _droneModel { get; set; }
         private string? _serviceProblem { get; set; }
@@ -12,7 +13,10 @@ namespace DroneCare.Objects
         private int _serviceTag     { get; set; }
 
 
+        //TextInfo for title casing strings
         TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+
+        //public drone attribute accessors/mutators
         public string? clientName
         {
             get { return _clientName; }
@@ -40,9 +44,20 @@ namespace DroneCare.Objects
         public int serviceTag       { get { return _serviceTag; } set { _serviceTag = value; } }
 
 
+        //drone constructor
+        public Drone(string? clientName, string? droneModel, string? serviceProblem,  int serviceCost, int serviceTag)
+        {
+            this.clientName     = clientName;
+            this.droneModel     = droneModel;
+            this.serviceProblem = serviceProblem;
+            this.serviceCost    = serviceCost;
+            this.serviceTag     = serviceTag;
+        }
+
+        //returns a string for client name and service cost
         public string Display()
         {
-            return $"Client Name: {clientName}, Service Cost: {serviceCost}";
+            return $"Client Name: {clientName}, Service Cost: ${serviceCost}";
         }
     }
 }
