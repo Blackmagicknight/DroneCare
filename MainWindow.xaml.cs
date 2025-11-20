@@ -1,6 +1,7 @@
 ﻿using DroneCare.Objects;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace DroneCare
@@ -18,6 +19,9 @@ namespace DroneCare
         //runs main logic
         public MainWindow()
         {
+            //set list views & box data context
+            LVW_RegularQueue.ItemsSource = regularService;
+
             InitializeComponent();
         }
 
@@ -75,6 +79,11 @@ namespace DroneCare
                     expressService.Enqueue(newDrone);
                     break;
             }
+
+            DisplayReqularQueue();
         }
+
+        //display all the elements in the regularService queue
+        private void DisplayReqularQueue() => LVW_RegularQueue.Items.Refresh();
     }
 }
