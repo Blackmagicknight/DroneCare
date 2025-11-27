@@ -46,9 +46,12 @@ namespace DroneCare
             TB_DroneModel.Clear();
             TB_ServiceProblem.Clear();
             TB_ServiceCost.Text = "0";
-            UD_ServiceTag.Text = "100";
+            //UD_ServiceTag.Text = "100";
             RBT_Regular.IsChecked = true;
         }
+
+        //increments service tag for next entry
+        private void IncrementServiceTag() => UD_ServiceTag.Value += 10;
 
         //returns the value if the priority radio group
         private string GetServicePriority()
@@ -68,6 +71,9 @@ namespace DroneCare
             string serviceProblem = TB_ServiceProblem.Text;
             double serviceCost = double.Parse(TB_ServiceCost.Text);
             int serviceTag = int.Parse(UD_ServiceTag.Text);
+
+            //increments service tag for next entry
+            IncrementServiceTag();
 
             //creates new drone object
             Drone newDrone = new Drone(clientName, droneModel, serviceProblem, serviceCost, serviceTag);
