@@ -127,7 +127,7 @@ namespace DroneCare
         }
 
         //displays selected regular drone details in text boxes
-        private void DisplaySelectedRegularDrone(object sender, SelectionChangedEventArgs e)
+        private void DisplaySelectedRegularDrone(object sender, MouseButtonEventArgs e)
         {
             //gets selected drone from list view
             Drone? selectedDrone = LVW_RegularQueue.SelectedItem as Drone;
@@ -145,7 +145,7 @@ namespace DroneCare
         }
 
         //displays selected express drone details in text boxes
-        private void DisplaySelectedExpressDrone(object sender, SelectionChangedEventArgs e)
+        private void DisplaySelectedExpressDrone(object sender, MouseButtonEventArgs e)
         {
             //gets selected drone from list view
             Drone? selectedDrone = LVW_ExpressQueue.SelectedItem as Drone;
