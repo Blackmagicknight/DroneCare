@@ -93,12 +93,14 @@ namespace DroneCare
                 case "Regular":
                     regularService.Enqueue(newDrone);
                     DisplayReqularQueue();
+                    ClearFields();
                     break;
                 case "Express":
                     //adds 15% to cost for express service rounded to 2 decimal places
                     newDrone.serviceCost = Math.Round(newDrone.serviceCost * 1.15, 2);
                     expressService.Enqueue(newDrone);
                     DisplayExpressQueue();
+                    ClearFields();
                     break;
             }
         }
@@ -202,12 +204,14 @@ namespace DroneCare
         {
             //gets selected drone from list box
             Drone? selectedDrone = LBX_FinishedList.SelectedItem as Drone;
+
             //checks if an item is selected
             if (selectedDrone == null)
             {
                 ErrorMessage("Please select an item from the Finished List to remove.");
                 return;
             }
+
             //removes selected drone from finished list and updates display
             finishedList.Remove(selectedDrone);
             DisplayFinishedList();
