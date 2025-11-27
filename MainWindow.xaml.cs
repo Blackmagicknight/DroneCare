@@ -28,9 +28,14 @@ namespace DroneCare
         //only allows numbers to be entered in specified text boxes
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            //uses regex to only allow numbers
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
+            //gets current text in text box
+            TextBox textBox = sender as TextBox;
+            string currentText = textBox.Text.Insert(textBox.CaretIndex, e.Text);
+
+            //uses regex to allow any amount of numbers before decimal and 0-2 numbers after decimal
+            //stackoverflow.com/questions/5978351
+            Regex regex = new Regex(@"^[0-9]*(\.[0-9]{0,2})?$");
+            if (!regex.IsMatch(currentText)) e.Handled = true;
         }
 
         //clears all text boxes and resets radio buttons for new entry
@@ -61,7 +66,7 @@ namespace DroneCare
             string clientName = TB_ClientName.Text;
             string droneModel = TB_DroneModel.Text;
             string serviceProblem = TB_ServiceProblem.Text;
-            int serviceCost = int.Parse(TB_ServiceCost.Text);
+            double serviceCost = double.Parse(TB_ServiceCost.Text);
             int serviceTag = int.Parse(UD_ServiceTag.Text);
 
             //creates new drone object

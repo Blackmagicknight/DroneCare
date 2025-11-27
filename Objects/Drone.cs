@@ -47,7 +47,7 @@ namespace DroneCare.Objects
 
 
         // drone constuctor that initializes all attributes
-        public Drone(string? clientName, string? droneModel, string? serviceProblem,  int serviceCost, int serviceTag)
+        public Drone(string? clientName, string? droneModel, string? serviceProblem,  double serviceCost, int serviceTag)
         {
             this.clientName     = clientName;
             this.droneModel     = droneModel;
