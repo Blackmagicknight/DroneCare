@@ -74,6 +74,13 @@ namespace DroneCare
             double serviceCost = double.Parse(TB_ServiceCost.Text);
             int serviceTag = int.Parse(UD_ServiceTag.Text);
 
+            //checks for empty fields
+            if (clientName == "" || droneModel == "" || serviceProblem == "")
+            {
+                ErrorMessage("Please fill in all fields before adding a new service item.");
+                return;
+            }
+
             //increments service tag for next entry
             IncrementServiceTag();
 
@@ -132,6 +139,7 @@ namespace DroneCare
                 TB_ClientName.Text = selectedDrone.clientName;
                 TB_ServiceProblem.Text = selectedDrone.serviceProblem;
             }
+            else ErrorMessage("The selected drone in regular queue is null and cannot be displayed");
         }
 
         //displays selected express drone details in text boxes
@@ -149,6 +157,7 @@ namespace DroneCare
                 TB_ClientName.Text = selectedDrone.clientName;
                 TB_ServiceProblem.Text = selectedDrone.serviceProblem;
             }
+            else ErrorMessage("The selected drone in express queue is null and cannot be displayed");
         }
 
         //removes drone from the regular queue and adds it to the finished list
