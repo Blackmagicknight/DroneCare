@@ -178,5 +178,24 @@ namespace DroneCare
             finishedList.Add(finishedDrone);
             DisplayFinishedList();
         }
+
+        //removes drone from the express queue and adds it to the finished list
+        private void RemoveExpressQueue(object sender, RoutedEventArgs e)
+        {
+            //checks if express queue is empty
+            if (expressService.Count == 0)
+            {
+                ErrorMessage("The Express Service queue is empty.");
+                return;
+            }
+
+            //removes & displays express queue
+            Drone finishedDrone = expressService.Dequeue();
+            DisplayExpressQueue();
+
+            //resets and displays finished list
+            finishedList.Add(finishedDrone);
+            DisplayFinishedList();
+        }
     }
 }

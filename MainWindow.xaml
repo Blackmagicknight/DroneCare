@@ -40,7 +40,7 @@
         </ListView>
 
         <Label x:Name="LB_ExpressQueue" Content="Express Queue" HorizontalAlignment="Left" Margin="300,240,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BT_ExpressQueue" Content="Remove From Queue" HorizontalAlignment="Left" Margin="600,240,0,0" VerticalAlignment="Top" MinWidth="150"/>
+        <Button x:Name="BT_ExpressQueue" Click="RemoveExpressQueue" Content="Remove From Queue" HorizontalAlignment="Left" Margin="600,240,0,0" VerticalAlignment="Top" MinWidth="150"/>
         <ListView x:Name="LVW_ExpressQueue" SelectionChanged="DisplaySelectedExpressDrone" Margin="300,270,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="450" Height="170">
             <ListView.View>
                 <GridView>
