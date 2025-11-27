@@ -113,7 +113,7 @@ namespace DroneCare
         //display all the elements in the finishedList
         private void DisplayFinishedList()
         {
-            //LBX_FinishedList.Clear();
+            LBX_FinishedList.Items.Clear();
             finishedList.ForEach(drone => LBX_FinishedList.Items.Add(drone));
         }
 
@@ -149,6 +149,25 @@ namespace DroneCare
                 TB_ClientName.Text = selectedDrone.clientName;
                 TB_ServiceProblem.Text = selectedDrone.serviceProblem;
             }
+        }
+
+        //removes drone from the regular queue and adds it to the finished list
+        private void RemoveRegularQueue(object sender, RoutedEventArgs e)
+        {
+            //checks if regular queue is empty
+            if (regularService.Count == 0)
+            {
+                ErrorMessage("The Regular Service queue is empty.");
+                return;
+            }
+
+            //removes & displays regular queue
+            Drone finishedDrone = regularService.Dequeue();
+            DisplayReqularQueue();
+
+            //resets and displays finished list
+            finishedList.Add(finishedDrone);
+            DisplayFinishedList();
         }
     }
 }
