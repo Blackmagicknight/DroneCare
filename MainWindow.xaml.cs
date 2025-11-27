@@ -125,5 +125,22 @@ namespace DroneCare
                 TB_ServiceProblem.Text = selectedDrone.serviceProblem;
             }
         }
+
+        //displays selected express drone details in text boxes
+        private void DisplaySelectedExpressDrone(object sender, SelectionChangedEventArgs e)
+        {
+            //gets selected drone from list view
+            Drone? selectedDrone = LVW_ExpressQueue.SelectedItem as Drone;
+
+            //clears text boxes
+            ClearFields();
+
+            //sets text boxes to selected drone details
+            if (selectedDrone != null)
+            {
+                TB_ClientName.Text = selectedDrone.clientName;
+                TB_ServiceProblem.Text = selectedDrone.serviceProblem;
+            }
+        }
     }
 }
