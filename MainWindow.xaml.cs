@@ -95,8 +95,8 @@ namespace DroneCare
                     DisplayReqularQueue();
                     break;
                 case "Express":
-                    //adds 15% to cost for express service
-                    newDrone.serviceCost *= 1.15;
+                    //adds 15% to cost for express service rounded to 2 decimal places
+                    newDrone.serviceCost = Math.Round(newDrone.serviceCost * 1.15, 2);
                     expressService.Enqueue(newDrone);
                     DisplayExpressQueue();
                     break;
