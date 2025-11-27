@@ -12,22 +12,22 @@
         <Label x:Name="LB_DroneModel" Content="Drone Model:" HorizontalAlignment="Left" Margin="20,50,0,0" VerticalAlignment="Top"/>
         <Label x:Name="LB_ServiceCost" Content="Service Cost:" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="TBK_ServiceProblem" HorizontalAlignment="Left" Margin="24,114,0,0" TextWrapping="Wrap" Text="Service Problem:" VerticalAlignment="Top" Width="83"/>
-        <Label x:Name="LB_ServiceTag" Content="Service Tag:" HorizontalAlignment="Left" Margin="20,160,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LB_ServiceTag" Content="Service Tag:" HorizontalAlignment="Left" Margin="20,210,0,0" VerticalAlignment="Top"/>
 
         <TextBox x:Name="TB_ClientName" HorizontalAlignment="Left" Margin="120,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TB_DroneModel" HorizontalAlignment="Left" Margin="120,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TB_ServiceCost" HorizontalAlignment="Left" Margin="120,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" Text="0"/>
-        <TextBox x:Name="TB_ServiceProblem" HorizontalAlignment="Left" Margin="120,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="35.92" VerticalScrollBarVisibility="Auto"/>
-        <xctk:IntegerUpDown Name="UD_ServiceTag" HorizontalAlignment="Left" Margin="120,160,0,0" Width="120" Height="23" VerticalAlignment="Top" AllowTextInput="False" Increment="10" Minimum="100" Maximum="900" Text="100" />
-        <RadioButton x:Name="RBT_Regular" Content="Regular" HorizontalAlignment="Left" Margin="24,194,0,0" VerticalAlignment="Top" IsChecked="True"/>
-        <RadioButton x:Name="RBT_Express" Content="Express" HorizontalAlignment="Left" Margin="124,194,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BT_AddDrone" Content="Add Drone to Queue" HorizontalAlignment="Left" Margin="24,224,0,0" VerticalAlignment="Top" MinWidth="215" Click="AddNewItem"/>
+        <TextBox x:Name="TB_ServiceProblem" HorizontalAlignment="Left" Margin="120,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="85.92" VerticalScrollBarVisibility="Auto"/>
+        <xctk:IntegerUpDown Name="UD_ServiceTag" HorizontalAlignment="Left" Margin="120,210,0,0" Width="120" Height="23" VerticalAlignment="Top" AllowTextInput="False" Increment="10" Minimum="100" Maximum="900" Text="100" />
+        <RadioButton x:Name="RBT_Regular" Content="Regular" HorizontalAlignment="Left" Margin="24,244,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RadioButton x:Name="RBT_Express" Content="Express" HorizontalAlignment="Left" Margin="124,244,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="BT_AddDrone" Content="Add Drone to Queue" HorizontalAlignment="Left" Margin="24,274,0,0" VerticalAlignment="Top" MinWidth="215" Click="AddNewItem"/>
 
         <TextBox x:Name="TB_ErrorMessage" Margin="0,0,0,20" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="960" Height="54" Foreground="Red" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Text="ERROR MESSAGE:"/>
 
         <Label x:Name="LB_RegularQueue" Content="Regular Queue" HorizontalAlignment="Left" Margin="300,20,0,0" VerticalAlignment="Top"/>
         <Button x:Name="BT_RegularQueue" Content="Remove From Queue" HorizontalAlignment="Left" Margin="600,20,0,0" VerticalAlignment="Top" MinWidth="150"/>
-        <ListView x:Name="LVW_RegularQueue" Margin="300,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="450" Height="170">
+        <ListView x:Name="LVW_RegularQueue" SelectionChanged="DisplaySelectedRegularDrone" Margin="300,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="450" Height="170">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="90" DisplayMemberBinding="{Binding clientName}"/>

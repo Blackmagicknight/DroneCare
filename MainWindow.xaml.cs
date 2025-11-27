@@ -39,14 +39,13 @@ namespace DroneCare
         }
 
         //clears all text boxes and resets radio buttons for new entry
-        private void ClearFields(object sender, RoutedEventArgs e)
+        private void ClearFields()
         {
 
             TB_ClientName.Clear();
             TB_DroneModel.Clear();
             TB_ServiceProblem.Clear();
             TB_ServiceCost.Text = "0";
-            //UD_ServiceTag.Text = "100";
             RBT_Regular.IsChecked = true;
         }
 
@@ -108,6 +107,23 @@ namespace DroneCare
         {
             LVW_ExpressQueue.Items.Clear();
             expressService.ToList().ForEach(drone => LVW_ExpressQueue.Items.Add(drone));
+        }
+
+        //displays selected regular drone details in text boxes
+        private void DisplaySelectedRegularDrone(object sender, SelectionChangedEventArgs e)
+        {
+            //gets selected drone from list view
+            Drone? selectedDrone = LVW_RegularQueue.SelectedItem as Drone;
+
+            //clears text boxes
+            ClearFields();
+
+            //sets text boxes to selected drone details
+            if (selectedDrone != null)
+            {
+                TB_ClientName.Text = selectedDrone.clientName;
+                TB_ServiceProblem.Text = selectedDrone.serviceProblem;
+            }
         }
     }
 }
