@@ -54,8 +54,8 @@
         </ListView>
 
         <Label x:Name="LB_FinishedList" Content="Finished List" HorizontalAlignment="Left" Margin="800,20,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BT_FinishedList" Content="Remove Selected Drone" HorizontalAlignment="Left" Margin="800,420,0,0" VerticalAlignment="Top" MinWidth="150"/>
-        <ListBox x:Name="LBX_FinishedList" Margin="800,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="360">
+        <Button x:Name="BT_FinishedList" Click="RemoveSelectedFinishedList" Content="Remove Selected Drone" HorizontalAlignment="Left" Margin="800,420,0,0" VerticalAlignment="Top" MinWidth="150"/>
+        <ListBox x:Name="LBX_FinishedList" MouseDoubleClick="RemoveSelectedFinishedList" Margin="800,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="360">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

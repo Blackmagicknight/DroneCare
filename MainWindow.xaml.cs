@@ -197,5 +197,20 @@ namespace DroneCare
             finishedList.Add(finishedDrone);
             DisplayFinishedList();
         }
+
+        private void RemoveSelectedFinishedList(object sender, RoutedEventArgs e)
+        {
+            //gets selected drone from list box
+            Drone? selectedDrone = LBX_FinishedList.SelectedItem as Drone;
+            //checks if an item is selected
+            if (selectedDrone == null)
+            {
+                ErrorMessage("Please select an item from the Finished List to remove.");
+                return;
+            }
+            //removes selected drone from finished list and updates display
+            finishedList.Remove(selectedDrone);
+            DisplayFinishedList();
+        }
     }
 }
