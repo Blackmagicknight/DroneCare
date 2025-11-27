@@ -49,6 +49,9 @@ namespace DroneCare
             RBT_Regular.IsChecked = true;
         }
 
+        //displays error message in error message text box
+        private void ErrorMessage(string msg) => TB_ErrorMessage.Text = $"ERROR MESSAGE: {msg}";
+
         //increments service tag for next entry
         private void IncrementServiceTag() => UD_ServiceTag.Value += 10;
 
@@ -82,17 +85,15 @@ namespace DroneCare
             {
                 case "Regular":
                     regularService.Enqueue(newDrone);
+                    DisplayReqularQueue();
                     break;
                 case "Express":
                     //adds 15% to cost for express service
                     newDrone.serviceCost *= 1.15;
                     expressService.Enqueue(newDrone);
+                    DisplayExpressQueue();
                     break;
             }
-
-            //MOVE ME
-            DisplayExpressQueue();
-            DisplayReqularQueue();
         }
 
         //display all the elements in the regularService queue
@@ -107,6 +108,13 @@ namespace DroneCare
         {
             LVW_ExpressQueue.Items.Clear();
             expressService.ToList().ForEach(drone => LVW_ExpressQueue.Items.Add(drone));
+        }
+
+        //display all the elements in the finishedList
+        private void DisplayFinishedList()
+        {
+            //LBX_FinishedList.Clear();
+            finishedList.ForEach(drone => LBX_FinishedList.Items.Add(drone));
         }
 
         //displays selected regular drone details in text boxes

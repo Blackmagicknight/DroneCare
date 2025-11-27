@@ -26,7 +26,7 @@
         <TextBox x:Name="TB_ErrorMessage" Margin="0,0,0,20" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="960" Height="54" Foreground="Red" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Text="ERROR MESSAGE:"/>
 
         <Label x:Name="LB_RegularQueue" Content="Regular Queue" HorizontalAlignment="Left" Margin="300,20,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BT_RegularQueue" Content="Remove From Queue" HorizontalAlignment="Left" Margin="600,20,0,0" VerticalAlignment="Top" MinWidth="150"/>
+        <Button x:Name="BT_RegularQueue" Click="RemoveRegularQueue" Content="Remove From Queue" HorizontalAlignment="Left" Margin="600,20,0,0" VerticalAlignment="Top" MinWidth="150"/>
         <ListView x:Name="LVW_RegularQueue" SelectionChanged="DisplaySelectedRegularDrone" Margin="300,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="450" Height="170">
             <ListView.View>
                 <GridView>
@@ -55,6 +55,15 @@
 
         <Label x:Name="LB_FinishedList" Content="Finished List" HorizontalAlignment="Left" Margin="800,20,0,0" VerticalAlignment="Top"/>
         <Button x:Name="BT_FinishedList" Content="Remove Selected Drone" HorizontalAlignment="Left" Margin="800,420,0,0" VerticalAlignment="Top" MinWidth="150"/>
-        <ListBox x:Name="LBX_FinishedList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="800,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="360"/>
+        <ListBox x:Name="LBX_FinishedList" Margin="800,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="360">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding clientName}" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding serviceCost}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
